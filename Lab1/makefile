@@ -9,12 +9,12 @@ DUMPFILE_NAME = dump.vcd
 
 BUILD_DIR = build
 
-SRC_MODULES += $(wildcard *.v)
-#SRC_MODULES = \
-#inverter.v \
-#inverter_delay.v
+#SRC_MODULES += $(wildcard *.v)
+SRC_MODULES = \
+inverter.v \
+inverter_delay.v
 
-#TESTBENCH = inv_tb.v
+TESTBENCH = inv_tb.v
 
 all: compile wave
 
@@ -29,3 +29,5 @@ gtk: compile wave
 
 clean:
 	rm -f $(COMPILER_OUTPUT_NAME) $(DUMPFILE_NAME)
+
+.PHONY: clean compile wave gtk all
