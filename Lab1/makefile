@@ -19,7 +19,7 @@ TESTBENCH = inv_tb.v
 all: compile wave
 
 compile:
-	$(CC) $(FLAGS) -o $(COMPILER_OUTPUT_NAME) $(SRC_MODULES)
+	$(CC) $(FLAGS) -o $(COMPILER_OUTPUT_NAME) $(SRC_MODULES) $(TESTBENCH) 
 
 wave: $(COMPILER_OUTPUT_NAME)
 	$(VVP) $(COMPILER_OUTPUT_NAME)
