@@ -14,7 +14,7 @@ module nand2_tb;
     nand2 nand2(x1, x2, y);
 
     initial begin
-        $dumpfile("tb_nand2.vcd");
+        $dumpfile("dump.vcd");
         $dumpvars(1, nand2_tb);
             x1 = 0;
             x2 = 0;

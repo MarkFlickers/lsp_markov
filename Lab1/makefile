@@ -1,33 +1,32 @@
-CC = iverilog
-VVP = vvp
-GTKWAVE = gtkwave
+MAKE = make
+GTK =
 
-FLAGS = -Wall -Winfloop
 
-COMPILER_OUTPUT_NAME = out
-DUMPFILE_NAME = dump.vcd
+ifeq (gtk, $(filter gtk,$(MAKECMDGOALS)))
+#ifeq ($1, gtk)
+	GTK = gtk
+endif
 
-BUILD_DIR = build
+all: inverter dff 2nand dffr
 
-#SRC_MODULES += $(wildcard *.v)
-SRC_MODULES = \
-inverter.v \
-inverter_delay.v
+gtk:
 
-TESTBENCH = inv_tb.v
+inverter:
+	$(MAKE) $(GTK) -C inverter
 
-all: compile wave
-
-compile:
-	$(CC) $(FLAGS) -o $(COMPILER_OUTPUT_NAME) $(SRC_MODULES) $(TESTBENCH) 
-
-wave: $(COMPILER_OUTPUT_NAME)
-	$(VVP) $(COMPILER_OUTPUT_NAME)
-
-gtk: compile wave
-	$(GTKWAVE) $(DUMPFILE_NAME)
+dff:
+	$(MAKE) $(GTK) -C flip_flop
+ 
+2nand:
+	$(MAKE) $(GTK) -C 2nand
+ 
+dffr:
+	$(MAKE) $(GTK) -C flip_flop_reset
 
 clean:
-	rm -f $(COMPILER_OUTPUT_NAME) $(DUMPFILE_NAME)
+	$(MAKE) clean -C inverter
+	$(MAKE) clean -C flip_flop
+	$(MAKE) clean -C 2nand
+	$(MAKE) clean -C flip_flop_reset
 
-.PHONY: clean compile wave gtk all
+.PHONY: all gtk inverter dff 2nand dffr clean

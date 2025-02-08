@@ -1,0 +1,32 @@
+CC = iverilog
+VVP = vvp
+GTKWAVE = gtkwave
+
+FLAGS = -Wall -Winfloop
+
+COMPILER_OUTPUT_NAME = out
+DUMPFILE_NAME = dump.vcd
+
+BUILD_DIR = build
+
+#SRC_MODULES += $(wildcard *.v)
+SRC_MODULES = \
+dff.v 
+
+#TESTBENCH = inv_tb.v
+
+all: $(COMPILER_OUTPUT_NAME) $(DUMPFILE_NAME)
+
+$(COMPILER_OUTPUT_NAME): $(SRC_MODULES)
+	$(CC) $(FLAGS) -o $(COMPILER_OUTPUT_NAME) $(SRC_MODULES) $(TESTBENCH) 
+
+$(DUMPFILE_NAME): $(COMPILER_OUTPUT_NAME)
+	$(VVP) $(COMPILER_OUTPUT_NAME)
+
+gtk: all
+	$(GTKWAVE) $(DUMPFILE_NAME)
+
+clean:
+	rm -f $(COMPILER_OUTPUT_NAME) $(DUMPFILE_NAME)
+
+.PHONY: clean wave gtk all
