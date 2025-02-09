@@ -3,13 +3,11 @@
 //D-flip-flop
 module dff(
     input d, clk,
-    output reg q, 
-    output nq   );
-
-    assign nq = ~q;
+    output reg q, nq );
 
     always @(negedge clk) begin
         q = d;
+        nq = ~d;
     end
 endmodule
 
