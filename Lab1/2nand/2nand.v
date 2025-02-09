@@ -23,6 +23,8 @@ module nand2_tb;
             x2 = 1;
         #10 x1 = 1;
             x2 = 1;
+        #10 x1 = 0;
+            x2 = 0;
         #10 $finish;
     end
 endmodule
