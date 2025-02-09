@@ -8,7 +8,7 @@ module tb_inv;
     inverter       i1(x, y_inv);
 
     initial begin
-        $dumpfile("dump.vcd");
+        $dumpfile(`DUMPFILE);
         $dumpvars(1, tb_inv);
             x = 0;
         #10 x = 1;

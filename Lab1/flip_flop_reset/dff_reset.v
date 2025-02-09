@@ -25,7 +25,7 @@ module tb_dff_r;
     dff_r dff1(d, clk, rst, q, nq);
 
     initial begin
-        $dumpfile("dump.vcd");
+        $dumpfile(`DUMPFILE);
         $dumpvars(1, tb_dff_r);
             d = 0;
             clk = 0;

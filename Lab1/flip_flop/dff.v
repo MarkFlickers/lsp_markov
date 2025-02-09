@@ -20,7 +20,7 @@ module tb_dff;
     dff dff1(d, clk, q, nq);
 
     initial begin
-        $dumpfile("dump.vcd");
+        $dumpfile(`DUMPFILE);
         $dumpvars(1, tb_dff);
         d = 0;
         clk = 0;
