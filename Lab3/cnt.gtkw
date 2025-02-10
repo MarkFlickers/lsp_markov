@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Feb 10 19:13:33 2025
+[*]
+[dumpfile] "C:\Users\Vladimir\Desktop\шарага\ЛСП\lsp_markov\Lab3\counter_tb.vcd"
+[dumpfile_mtime] "Mon Feb 10 19:13:21 2025"
+[dumpfile_size] 2768
+[savefile] "C:\Users\Vladimir\Desktop\шарага\ЛСП\lsp_markov\Lab3\cnt.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-17.291996 150800 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 197
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+counter_tb.c
+counter_tb.ec
+counter_tb.r
+@22
+counter_tb.q_beh[3:0]
+@23
+counter_tb.q_str[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
