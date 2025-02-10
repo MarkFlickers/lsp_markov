@@ -10,16 +10,17 @@ BUILD_DIR = build
 
 #SRC_MODULES += $(wildcard *.v)
 SRC_MODULES = \
-behav.v
+behav_assign.v \
+behav_procedural.v
 
-#TESTBENCH = inv_tb.v
+TESTBENCH = comb_tb.v
 
-DUMPFILE = $(SRC_MODULES)cd
+DUMPFILE = $(TESTBENCH)cd
 DUMPFILE_NAME = '"$(DUMPFILE)"'
 
 all: $(COMPILER_OUTPUT) $(DUMPFILE)
 
-$(COMPILER_OUTPUT): $(SRC_MODULES)
+$(COMPILER_OUTPUT): $(SRC_MODULES) $(TESTBENCH) 
 	$(CC) $(FLAGS) -DDUMPFILE=$(DUMPFILE_NAME) -o $@ $(SRC_MODULES) $(TESTBENCH) 
 
 $(DUMPFILE): $(COMPILER_OUTPUT)
